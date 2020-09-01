@@ -45,7 +45,7 @@ const copyThemePackageJson = () =>
         delete contents.devDependencies;
         delete contents.scripts;
 
-        contents.name = `@po-ui/style${argv.theme ? '-' + argv.theme : ''}`;
+        contents.name = `@nicoleoliveira/voce-que-lute-style${argv.theme ? '-' + argv.theme : ''}`;
         contents.description = `PO UI - Theme${argv.theme ? ' ' + capitalize(argv.theme) : ''}`;
 
         file.contents = Buffer.from(JSON.stringify(contents, null, 2), 'utf-8');
