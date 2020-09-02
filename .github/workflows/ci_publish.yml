@@ -40,7 +40,7 @@ jobs:
       id: package-version
       uses: martinbeentjes/npm-get-version-action@master
     - name: npm publish
-      run: npm publish dist/style
+      run: npm publish dist/style --tag next
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: npm dist-tags
