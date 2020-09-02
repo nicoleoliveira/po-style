@@ -39,7 +39,7 @@ jobs:
     - uses: martinbeentjes/npm-get-version-action@master
       env:
         VERSION:  ${{ steps.package-version.outputs.current-version }}
-    - run: echo "version $VERSION"
+    - run: echo "version test --> $VERSION"
 #     - run: npm publish dist/style
 #     - run: npm dist-tags add @nicoleoliveira/voce-que-lute-style@${{ steps.package-version.outputs.current-version}}
 #       env:
