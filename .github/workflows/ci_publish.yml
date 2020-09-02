@@ -37,8 +37,6 @@ jobs:
     - run: npm install
     - run: npm run build
     - uses: martinbeentjes/npm-get-version-action@master
-      with:
-        path: dist/style
     - run: echo "version ${{ steps.package-version.outputs.current-version }}"
 #     - run: npm publish dist/style
 #     - run: npm dist-tags add @nicoleoliveira/voce-que-lute-style@${{ steps.package-version.outputs.current-version}}
