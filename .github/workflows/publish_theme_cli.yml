@@ -19,7 +19,7 @@ jobs:
       with:
         path: dist/cli
     - name: npm publish
-      run: npm publish dist/cli --tag next
+      run: npm publish dist/cli --access public --tag next
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: npm dist-tags
