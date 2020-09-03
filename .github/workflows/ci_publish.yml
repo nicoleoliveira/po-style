@@ -5,10 +5,6 @@ on:
     - v**
 
   workflow_dispatch:
-    inputs:
-      release: 
-        description: 'Is release candidate or beta?'
-        default: false
   
 jobs:
   build:
