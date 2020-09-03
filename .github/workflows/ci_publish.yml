@@ -1,10 +1,8 @@
-name: NPM publish manual
+name: Run publish @po-ui/style
 on:
   create:
     tags: 
     - v**
-
-  workflow_dispatch:
   
 jobs:
   build:
@@ -17,17 +15,17 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
     - run: npm install
     - run: npm run build
-    - name: get package.json version
+      
+    - name: Get package.json version
       id: package-version
       uses: martinbeentjes/npm-get-version-action@master
-    - name: npm publish
+      
+    - name: Run publish with -next
       run: npm publish dist/style --tag next
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-    - name: teste
-      if: (!endsWith(github.ref, '-next'))
-      run: echo 'teste do ref ${{ github.ref }}'
-    - name: npm dist-tags
+ 
+    - name: Add "latest" tag
       if: (!endsWith(github.ref, '-next'))
       run: npm dist-tags add @nicoleoliveira/voce-que-lute-style@${{ steps.package-version.outputs.current-version}}
       env:
