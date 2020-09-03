@@ -24,6 +24,9 @@ jobs:
       run: npm publish dist/style --tag next
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+    - name: teste
+      if: (!endsWith(github.ref, '-next'))
+      run: echo 'teste do ref ${{ github.ref }}'
     - name: npm dist-tags
       if: (!endsWith(github.ref, '-next'))
       run: npm dist-tags add @nicoleoliveira/voce-que-lute-style@${{ steps.package-version.outputs.current-version}}
