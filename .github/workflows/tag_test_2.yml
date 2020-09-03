@@ -31,6 +31,6 @@ jobs:
 #           echo $RELEASE_VERSION
 #           echo ${{ env.RELEASE_VERSION }}
       - name: Validação tag
-        if: (!endsWith(${{ github.ref }}, '-next'))
-        run: echo '${{ github.ref }} depois do if!'
+        if: (!endsWith(github.ref, '-next'))
+        run: echo '${{ github.ref }} não contém next!'
       # Runs a set of commands using the runners shell
