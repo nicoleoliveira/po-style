@@ -1,16 +1,15 @@
-# This is a basic workflow to help you get started with Actions
-
-# name: NPM publish
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
-# on:
-#   release: 
-#     types: created
-
 name: NPM publish manual
 on:
-  workflow_dispatch
+  create:
+    tags: 
+    - v**
+
+  workflow_dispatch:
+    inputs:
+      release: 
+        description: 'Is release candidate or beta?'
+        default: false
+  
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,6 +29,7 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     - name: npm dist-tags
+      if: (!endsWith(github.ref, '-next'))
       run: npm dist-tags add @nicoleoliveira/voce-que-lute-style@${{ steps.package-version.outputs.current-version}}
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
