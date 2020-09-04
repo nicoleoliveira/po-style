@@ -1,6 +1,6 @@
 {
   "name": "@nicoleoliveira/voce-que-lute-theme-cli",
-  "version": "7.0.0-rc.1",
+  "version": "7.0.0-next.1",
   "description": "po cli theme",
   "bin": {
     "po-theme": "bin/cli.js"
